@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceePubLibrary", "ServiceePubLibrary\ServiceePubLibrary.csproj", "{15B3E0D2-6217-493A-A690-158C497F5318}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceePubCloud", "ServiceePubCloud\ServiceePubCloud.csproj", "{58C1C38D-2F5E-4C3B-9489-22223DE72120}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceePubLibraryEntities", "ServiceePubLibraryEntities\ServiceePubLibraryEntities.csproj", "{ED118F10-77D2-4DC9-AB5B-9BF9EA4FB189}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ePubIntegrator", "ePubIntegrator\ePubIntegrator.csproj", "{BF61ED34-C349-4EB1-8D99-E0B03BEBD31E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{58C1C38D-2F5E-4C3B-9489-22223DE72120} = {58C1C38D-2F5E-4C3B-9489-22223DE72120}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EpubReader3", "EpubReader3\EpubReader3.csproj", "{1A5B2CC7-94A5-482C-8EC2-7AC244C75BC4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{15B3E0D2-6217-493A-A690-158C497F5318}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15B3E0D2-6217-493A-A690-158C497F5318}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15B3E0D2-6217-493A-A690-158C497F5318}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15B3E0D2-6217-493A-A690-158C497F5318}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58C1C38D-2F5E-4C3B-9489-22223DE72120}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58C1C38D-2F5E-4C3B-9489-22223DE72120}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58C1C38D-2F5E-4C3B-9489-22223DE72120}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58C1C38D-2F5E-4C3B-9489-22223DE72120}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED118F10-77D2-4DC9-AB5B-9BF9EA4FB189}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED118F10-77D2-4DC9-AB5B-9BF9EA4FB189}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED118F10-77D2-4DC9-AB5B-9BF9EA4FB189}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED118F10-77D2-4DC9-AB5B-9BF9EA4FB189}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF61ED34-C349-4EB1-8D99-E0B03BEBD31E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF61ED34-C349-4EB1-8D99-E0B03BEBD31E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF61ED34-C349-4EB1-8D99-E0B03BEBD31E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF61ED34-C349-4EB1-8D99-E0B03BEBD31E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A5B2CC7-94A5-482C-8EC2-7AC244C75BC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A5B2CC7-94A5-482C-8EC2-7AC244C75BC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A5B2CC7-94A5-482C-8EC2-7AC244C75BC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A5B2CC7-94A5-482C-8EC2-7AC244C75BC4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

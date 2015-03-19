@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ServiceePubLibrary" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:2957/ServiceePubCloud.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:2957/ServiceePubCloud.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:2957/ServiceePubCloud.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ServiceePubLibrary" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IServiceePubLibrary_RegisterUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterUser" />
+  </wsdl:message>
+  <wsdl:message name="IServiceePubLibrary_RegisterUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceePubLibrary_Login_InputMessage">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="IServiceePubLibrary_Login_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceePubLibrary_GetUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUser" />
+  </wsdl:message>
+  <wsdl:message name="IServiceePubLibrary_GetUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceePubLibrary_SetUserInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetUserInfo" />
+  </wsdl:message>
+  <wsdl:message name="IServiceePubLibrary_SetUserInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetUserInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceePubLibrary_GetUserInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserInfo" />
+  </wsdl:message>
+  <wsdl:message name="IServiceePubLibrary_GetUserInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceePubLibrary_GetMostActiveDay_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMostActiveDay" />
+  </wsdl:message>
+  <wsdl:message name="IServiceePubLibrary_GetMostActiveDay_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMostActiveDayResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceePubLibrary_GetMostActiveMonth_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMostActiveMonth" />
+  </wsdl:message>
+  <wsdl:message name="IServiceePubLibrary_GetMostActiveMonth_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMostActiveMonthResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceePubLibrary_GetMostActiveYear_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMostActiveYear" />
+  </wsdl:message>
+  <wsdl:message name="IServiceePubLibrary_GetMostActiveYear_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMostActiveYearResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceePubLibrary_GetChaptersTopFive_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetChaptersTopFive" />
+  </wsdl:message>
+  <wsdl:message name="IServiceePubLibrary_GetChaptersTopFive_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetChaptersTopFiveResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceePubLibrary_GetAllMonths_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllMonths" />
+  </wsdl:message>
+  <wsdl:message name="IServiceePubLibrary_GetAllMonths_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllMonthsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceePubLibrary_GetMostActiveDayByUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMostActiveDayByUser" />
+  </wsdl:message>
+  <wsdl:message name="IServiceePubLibrary_GetMostActiveDayByUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMostActiveDayByUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceePubLibrary_GetMostActiveMonthByUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMostActiveMonthByUser" />
+  </wsdl:message>
+  <wsdl:message name="IServiceePubLibrary_GetMostActiveMonthByUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMostActiveMonthByUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceePubLibrary_GetMostActiveYearByUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMostActiveYearByUser" />
+  </wsdl:message>
+  <wsdl:message name="IServiceePubLibrary_GetMostActiveYearByUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMostActiveYearByUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceePubLibrary_GetAllMonthsByUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllMonthsByUser" />
+  </wsdl:message>
+  <wsdl:message name="IServiceePubLibrary_GetAllMonthsByUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllMonthsByUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceePubLibrary_GetTop5EpubFav_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTop5EpubFav" />
+  </wsdl:message>
+  <wsdl:message name="IServiceePubLibrary_GetTop5EpubFav_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTop5EpubFavResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceePubLibrary_GetTop5EpubBookmark_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTop5EpubBookmark" />
+  </wsdl:message>
+  <wsdl:message name="IServiceePubLibrary_GetTop5EpubBookmark_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTop5EpubBookmarkResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceePubLibrary_GetTop5EpubFavByUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTop5EpubFavByUser" />
+  </wsdl:message>
+  <wsdl:message name="IServiceePubLibrary_GetTop5EpubFavByUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTop5EpubFavByUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceePubLibrary_GetTop5EpubBookmarkByUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTop5EpubBookmarkByUser" />
+  </wsdl:message>
+  <wsdl:message name="IServiceePubLibrary_GetTop5EpubBookmarkByUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTop5EpubBookmarkByUserResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IServiceePubLibrary">
+    <wsdl:operation name="RegisterUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceePubLibrary/RegisterUser" message="tns:IServiceePubLibrary_RegisterUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceePubLibrary/RegisterUserResponse" message="tns:IServiceePubLibrary_RegisterUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceePubLibrary/Login" message="tns:IServiceePubLibrary_Login_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceePubLibrary/LoginResponse" message="tns:IServiceePubLibrary_Login_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceePubLibrary/GetUser" message="tns:IServiceePubLibrary_GetUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceePubLibrary/GetUserResponse" message="tns:IServiceePubLibrary_GetUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetUserInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceePubLibrary/SetUserInfo" message="tns:IServiceePubLibrary_SetUserInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceePubLibrary/SetUserInfoResponse" message="tns:IServiceePubLibrary_SetUserInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceePubLibrary/GetUserInfo" message="tns:IServiceePubLibrary_GetUserInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceePubLibrary/GetUserInfoResponse" message="tns:IServiceePubLibrary_GetUserInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMostActiveDay">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceePubLibrary/GetMostActiveDay" message="tns:IServiceePubLibrary_GetMostActiveDay_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceePubLibrary/GetMostActiveDayResponse" message="tns:IServiceePubLibrary_GetMostActiveDay_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMostActiveMonth">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceePubLibrary/GetMostActiveMonth" message="tns:IServiceePubLibrary_GetMostActiveMonth_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceePubLibrary/GetMostActiveMonthResponse" message="tns:IServiceePubLibrary_GetMostActiveMonth_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMostActiveYear">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceePubLibrary/GetMostActiveYear" message="tns:IServiceePubLibrary_GetMostActiveYear_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceePubLibrary/GetMostActiveYearResponse" message="tns:IServiceePubLibrary_GetMostActiveYear_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetChaptersTopFive">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceePubLibrary/GetChaptersTopFive" message="tns:IServiceePubLibrary_GetChaptersTopFive_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceePubLibrary/GetChaptersTopFiveResponse" message="tns:IServiceePubLibrary_GetChaptersTopFive_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllMonths">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceePubLibrary/GetAllMonths" message="tns:IServiceePubLibrary_GetAllMonths_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceePubLibrary/GetAllMonthsResponse" message="tns:IServiceePubLibrary_GetAllMonths_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMostActiveDayByUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceePubLibrary/GetMostActiveDayByUser" message="tns:IServiceePubLibrary_GetMostActiveDayByUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceePubLibrary/GetMostActiveDayByUserResponse" message="tns:IServiceePubLibrary_GetMostActiveDayByUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMostActiveMonthByUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceePubLibrary/GetMostActiveMonthByUser" message="tns:IServiceePubLibrary_GetMostActiveMonthByUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceePubLibrary/GetMostActiveMonthByUserResponse" message="tns:IServiceePubLibrary_GetMostActiveMonthByUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMostActiveYearByUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceePubLibrary/GetMostActiveYearByUser" message="tns:IServiceePubLibrary_GetMostActiveYearByUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceePubLibrary/GetMostActiveYearByUserResponse" message="tns:IServiceePubLibrary_GetMostActiveYearByUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllMonthsByUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceePubLibrary/GetAllMonthsByUser" message="tns:IServiceePubLibrary_GetAllMonthsByUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceePubLibrary/GetAllMonthsByUserResponse" message="tns:IServiceePubLibrary_GetAllMonthsByUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTop5EpubFav">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceePubLibrary/GetTop5EpubFav" message="tns:IServiceePubLibrary_GetTop5EpubFav_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceePubLibrary/GetTop5EpubFavResponse" message="tns:IServiceePubLibrary_GetTop5EpubFav_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTop5EpubBookmark">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceePubLibrary/GetTop5EpubBookmark" message="tns:IServiceePubLibrary_GetTop5EpubBookmark_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceePubLibrary/GetTop5EpubBookmarkResponse" message="tns:IServiceePubLibrary_GetTop5EpubBookmark_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTop5EpubFavByUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceePubLibrary/GetTop5EpubFavByUser" message="tns:IServiceePubLibrary_GetTop5EpubFavByUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceePubLibrary/GetTop5EpubFavByUserResponse" message="tns:IServiceePubLibrary_GetTop5EpubFavByUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTop5EpubBookmarkByUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceePubLibrary/GetTop5EpubBookmarkByUser" message="tns:IServiceePubLibrary_GetTop5EpubBookmarkByUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceePubLibrary/GetTop5EpubBookmarkByUserResponse" message="tns:IServiceePubLibrary_GetTop5EpubBookmarkByUser_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IServiceePubLibrary" type="tns:IServiceePubLibrary">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RegisterUser">
+      <soap:operation soapAction="http://tempuri.org/IServiceePubLibrary/RegisterUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://tempuri.org/IServiceePubLibrary/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <soap:operation soapAction="http://tempuri.org/IServiceePubLibrary/GetUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetUserInfo">
+      <soap:operation soapAction="http://tempuri.org/IServiceePubLibrary/SetUserInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserInfo">
+      <soap:operation soapAction="http://tempuri.org/IServiceePubLibrary/GetUserInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMostActiveDay">
+      <soap:operation soapAction="http://tempuri.org/IServiceePubLibrary/GetMostActiveDay" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMostActiveMonth">
+      <soap:operation soapAction="http://tempuri.org/IServiceePubLibrary/GetMostActiveMonth" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMostActiveYear">
+      <soap:operation soapAction="http://tempuri.org/IServiceePubLibrary/GetMostActiveYear" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChaptersTopFive">
+      <soap:operation soapAction="http://tempuri.org/IServiceePubLibrary/GetChaptersTopFive" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllMonths">
+      <soap:operation soapAction="http://tempuri.org/IServiceePubLibrary/GetAllMonths" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMostActiveDayByUser">
+      <soap:operation soapAction="http://tempuri.org/IServiceePubLibrary/GetMostActiveDayByUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMostActiveMonthByUser">
+      <soap:operation soapAction="http://tempuri.org/IServiceePubLibrary/GetMostActiveMonthByUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMostActiveYearByUser">
+      <soap:operation soapAction="http://tempuri.org/IServiceePubLibrary/GetMostActiveYearByUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllMonthsByUser">
+      <soap:operation soapAction="http://tempuri.org/IServiceePubLibrary/GetAllMonthsByUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTop5EpubFav">
+      <soap:operation soapAction="http://tempuri.org/IServiceePubLibrary/GetTop5EpubFav" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTop5EpubBookmark">
+      <soap:operation soapAction="http://tempuri.org/IServiceePubLibrary/GetTop5EpubBookmark" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTop5EpubFavByUser">
+      <soap:operation soapAction="http://tempuri.org/IServiceePubLibrary/GetTop5EpubFavByUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTop5EpubBookmarkByUser">
+      <soap:operation soapAction="http://tempuri.org/IServiceePubLibrary/GetTop5EpubBookmarkByUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServiceePubLibrary">
+    <wsdl:port name="BasicHttpBinding_IServiceePubLibrary" binding="tns:BasicHttpBinding_IServiceePubLibrary">
+      <soap:address location="http://localhost:2957/ServiceePubCloud.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

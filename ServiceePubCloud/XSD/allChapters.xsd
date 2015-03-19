@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="allChapters" type="chapters" />
+
+  <xs:complexType name="chapters">
+    <xs:sequence>
+      <xs:element name="chapter" type="chapter" minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="chapter">
+    <xs:sequence>
+      <xs:element name="titEpub" type="xs:string" />
+      <xs:element name="titChap" type="xs:string" />
+      <xs:element name="counter" type="xs:integer" />
+    </xs:sequence>
+  </xs:complexType>
+
+
+</xs:schema>

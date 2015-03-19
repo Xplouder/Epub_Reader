@@ -1,0 +1,613 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Model_Service_ePub_Library.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="Model_Service_ePub_LibraryStoreContainer">
+    <EntitySet Name="User" EntityType="Model_Service_ePub_Library.Store.User" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Chapter" EntityType="Model_Service_ePub_Library.Store.Chapter" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ChapterBookmark" EntityType="Model_Service_ePub_Library.Store.ChapterBookmark" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ChapterFav" EntityType="Model_Service_ePub_Library.Store.ChapterFav" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Epub" EntityType="Model_Service_ePub_Library.Store.Epub" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EpubBookmark" EntityType="Model_Service_ePub_Library.Store.EpubBookmark" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EpubFav" EntityType="Model_Service_ePub_Library.Store.EpubFav" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="LoginHistory" EntityType="Model_Service_ePub_Library.Store.LoginHistory" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_ChapterChapterBookmark" Association="Model_Service_ePub_Library.Store.FK_ChapterChapterBookmark">
+      <End Role="Chapter" EntitySet="Chapter" />
+      <End Role="ChapterBookmark" EntitySet="ChapterBookmark" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ChapterChapterFav" Association="Model_Service_ePub_Library.Store.FK_ChapterChapterFav">
+      <End Role="Chapter" EntitySet="Chapter" />
+      <End Role="ChapterFav" EntitySet="ChapterFav" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EpubChapter" Association="Model_Service_ePub_Library.Store.FK_EpubChapter">
+      <End Role="Epub" EntitySet="Epub" />
+      <End Role="Chapter" EntitySet="Chapter" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserChapterBookmark" Association="Model_Service_ePub_Library.Store.FK_UserChapterBookmark">
+      <End Role="User" EntitySet="User" />
+      <End Role="ChapterBookmark" EntitySet="ChapterBookmark" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserChapterFav" Association="Model_Service_ePub_Library.Store.FK_UserChapterFav">
+      <End Role="User" EntitySet="User" />
+      <End Role="ChapterFav" EntitySet="ChapterFav" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EpubEpubBookmark" Association="Model_Service_ePub_Library.Store.FK_EpubEpubBookmark">
+      <End Role="Epub" EntitySet="Epub" />
+      <End Role="EpubBookmark" EntitySet="EpubBookmark" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EpubEpubFav" Association="Model_Service_ePub_Library.Store.FK_EpubEpubFav">
+      <End Role="Epub" EntitySet="Epub" />
+      <End Role="EpubFav" EntitySet="EpubFav" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserEpubBookmark" Association="Model_Service_ePub_Library.Store.FK_UserEpubBookmark">
+      <End Role="User" EntitySet="User" />
+      <End Role="EpubBookmark" EntitySet="EpubBookmark" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserEpubFav" Association="Model_Service_ePub_Library.Store.FK_UserEpubFav">
+      <End Role="User" EntitySet="User" />
+      <End Role="EpubFav" EntitySet="EpubFav" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserLoginHistory" Association="Model_Service_ePub_Library.Store.FK_UserLoginHistory">
+      <End Role="User" EntitySet="User" />
+      <End Role="LoginHistory" EntitySet="LoginHistory" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Username" Type="nvarchar" Nullable="false" MaxLength="15" />
+    <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="60" />
+    <Property Name="Email" Type="nvarchar" Nullable="false" MaxLength="30" />
+    <Property Name="Birthdate" Type="datetime" Nullable="false" />
+    <Property Name="Salt" Type="nvarchar" Nullable="false" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="Chapter">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Epub_Id" Type="int" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ChapterBookmark">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Chapter_Id" Type="int" Nullable="false" />
+    <Property Name="User_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ChapterFav">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Chapter_Id" Type="int" Nullable="false" />
+    <Property Name="User_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Epub">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Author" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Subject" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EpubBookmark">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Epub_Id" Type="int" Nullable="false" />
+    <Property Name="User_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EpubFav">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Epub_Id" Type="int" Nullable="false" />
+    <Property Name="User_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LoginHistory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DateLogin" Type="datetime" Nullable="false" />
+    <Property Name="User_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_ChapterChapterBookmark">
+    <End Role="Chapter" Type="Model_Service_ePub_Library.Store.Chapter" Multiplicity="1" />
+    <End Role="ChapterBookmark" Type="Model_Service_ePub_Library.Store.ChapterBookmark" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Chapter">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ChapterBookmark">
+        <PropertyRef Name="Chapter_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ChapterChapterFav">
+    <End Role="Chapter" Type="Model_Service_ePub_Library.Store.Chapter" Multiplicity="1" />
+    <End Role="ChapterFav" Type="Model_Service_ePub_Library.Store.ChapterFav" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Chapter">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ChapterFav">
+        <PropertyRef Name="Chapter_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EpubChapter">
+    <End Role="Epub" Type="Model_Service_ePub_Library.Store.Epub" Multiplicity="1" />
+    <End Role="Chapter" Type="Model_Service_ePub_Library.Store.Chapter" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Epub">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Chapter">
+        <PropertyRef Name="Epub_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserChapterBookmark">
+    <End Role="User" Type="Model_Service_ePub_Library.Store.User" Multiplicity="1" />
+    <End Role="ChapterBookmark" Type="Model_Service_ePub_Library.Store.ChapterBookmark" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ChapterBookmark">
+        <PropertyRef Name="User_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserChapterFav">
+    <End Role="User" Type="Model_Service_ePub_Library.Store.User" Multiplicity="1" />
+    <End Role="ChapterFav" Type="Model_Service_ePub_Library.Store.ChapterFav" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ChapterFav">
+        <PropertyRef Name="User_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EpubEpubBookmark">
+    <End Role="Epub" Type="Model_Service_ePub_Library.Store.Epub" Multiplicity="1" />
+    <End Role="EpubBookmark" Type="Model_Service_ePub_Library.Store.EpubBookmark" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Epub">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EpubBookmark">
+        <PropertyRef Name="Epub_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EpubEpubFav">
+    <End Role="Epub" Type="Model_Service_ePub_Library.Store.Epub" Multiplicity="1" />
+    <End Role="EpubFav" Type="Model_Service_ePub_Library.Store.EpubFav" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Epub">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EpubFav">
+        <PropertyRef Name="Epub_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserEpubBookmark">
+    <End Role="User" Type="Model_Service_ePub_Library.Store.User" Multiplicity="1" />
+    <End Role="EpubBookmark" Type="Model_Service_ePub_Library.Store.EpubBookmark" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EpubBookmark">
+        <PropertyRef Name="User_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserEpubFav">
+    <End Role="User" Type="Model_Service_ePub_Library.Store.User" Multiplicity="1" />
+    <End Role="EpubFav" Type="Model_Service_ePub_Library.Store.EpubFav" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EpubFav">
+        <PropertyRef Name="User_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserLoginHistory">
+    <End Role="User" Type="Model_Service_ePub_Library.Store.User" Multiplicity="1" />
+    <End Role="LoginHistory" Type="Model_Service_ePub_Library.Store.LoginHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LoginHistory">
+        <PropertyRef Name="User_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model_Service_ePub_Library" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="Model_Service_ePub_LibraryContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="User" EntityType="Model_Service_ePub_Library.User" />
+          <EntitySet Name="Chapter" EntityType="Model_Service_ePub_Library.Chapter" />
+          <EntitySet Name="ChapterBookmark" EntityType="Model_Service_ePub_Library.ChapterBookmark" />
+          <EntitySet Name="ChapterFav" EntityType="Model_Service_ePub_Library.ChapterFav" />
+          <EntitySet Name="Epub" EntityType="Model_Service_ePub_Library.Epub" />
+          <EntitySet Name="EpubBookmark" EntityType="Model_Service_ePub_Library.EpubBookmark" />
+          <EntitySet Name="EpubFav" EntityType="Model_Service_ePub_Library.EpubFav" />
+          <AssociationSet Name="FK_ChapterChapterBookmark" Association="Model_Service_ePub_Library.FK_ChapterChapterBookmark">
+            <End Role="Chapter" EntitySet="Chapter" />
+            <End Role="ChapterBookmark" EntitySet="ChapterBookmark" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ChapterChapterFav" Association="Model_Service_ePub_Library.FK_ChapterChapterFav">
+            <End Role="Chapter" EntitySet="Chapter" />
+            <End Role="ChapterFav" EntitySet="ChapterFav" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EpubChapter" Association="Model_Service_ePub_Library.FK_EpubChapter">
+            <End Role="Epub" EntitySet="Epub" />
+            <End Role="Chapter" EntitySet="Chapter" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserChapterBookmark" Association="Model_Service_ePub_Library.FK_UserChapterBookmark">
+            <End Role="User" EntitySet="User" />
+            <End Role="ChapterBookmark" EntitySet="ChapterBookmark" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserChapterFav" Association="Model_Service_ePub_Library.FK_UserChapterFav">
+            <End Role="User" EntitySet="User" />
+            <End Role="ChapterFav" EntitySet="ChapterFav" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EpubEpubBookmark" Association="Model_Service_ePub_Library.FK_EpubEpubBookmark">
+            <End Role="Epub" EntitySet="Epub" />
+            <End Role="EpubBookmark" EntitySet="EpubBookmark" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EpubEpubFav" Association="Model_Service_ePub_Library.FK_EpubEpubFav">
+            <End Role="Epub" EntitySet="Epub" />
+            <End Role="EpubFav" EntitySet="EpubFav" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserEpubBookmark" Association="Model_Service_ePub_Library.FK_UserEpubBookmark">
+            <End Role="User" EntitySet="User" />
+            <End Role="EpubBookmark" EntitySet="EpubBookmark" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserEpubFav" Association="Model_Service_ePub_Library.FK_UserEpubFav">
+            <End Role="User" EntitySet="User" />
+            <End Role="EpubFav" EntitySet="EpubFav" />
+          </AssociationSet>
+          <EntitySet Name="LoginHistory" EntityType="Model_Service_ePub_Library.LoginHistory" />
+          <AssociationSet Name="FK_UserLoginHistory" Association="Model_Service_ePub_Library.FK_UserLoginHistory">
+            <End Role="User" EntitySet="User" />
+            <End Role="LoginHistory" EntitySet="LoginHistory" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" cg:GetterAccess="Public" />
+          <Property Type="String" Name="Username" Nullable="false" MaxLength="15" annotation:StoreGeneratedPattern="None" Unicode="true" FixedLength="false" />
+          <Property Type="String" Name="Password" Nullable="false" MaxLength="60" Unicode="true" FixedLength="false" />
+          <Property Type="String" Name="Email" Nullable="false" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Type="DateTime" Name="Birthdate" Nullable="false" Precision="3" />
+          <Property Type="String" Name="Salt" Nullable="false" MaxLength="30" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="ChapterBookmark" Relationship="Model_Service_ePub_Library.FK_UserChapterBookmark" FromRole="User" ToRole="ChapterBookmark" />
+          <NavigationProperty Name="ChapterFav" Relationship="Model_Service_ePub_Library.FK_UserChapterFav" FromRole="User" ToRole="ChapterFav" />
+          <NavigationProperty Name="EpubBookmark" Relationship="Model_Service_ePub_Library.FK_UserEpubBookmark" FromRole="User" ToRole="EpubBookmark" />
+          <NavigationProperty Name="EpubFav" Relationship="Model_Service_ePub_Library.FK_UserEpubFav" FromRole="User" ToRole="EpubFav" />
+          <NavigationProperty Name="LoginHistory" Relationship="Model_Service_ePub_Library.FK_UserLoginHistory" FromRole="User" ToRole="LoginHistory" />
+        </EntityType>
+        <EntityType Name="Chapter">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="Epub_Id" Nullable="false" />
+          <NavigationProperty Name="ChapterBookmark" Relationship="Model_Service_ePub_Library.FK_ChapterChapterBookmark" FromRole="Chapter" ToRole="ChapterBookmark" />
+          <NavigationProperty Name="ChapterFav" Relationship="Model_Service_ePub_Library.FK_ChapterChapterFav" FromRole="Chapter" ToRole="ChapterFav" />
+          <NavigationProperty Name="Epub" Relationship="Model_Service_ePub_Library.FK_EpubChapter" FromRole="Chapter" ToRole="Epub" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="ChapterBookmark">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="Chapter_Id" Nullable="false" />
+          <Property Type="Int32" Name="User_Id" Nullable="false" />
+          <NavigationProperty Name="Chapter" Relationship="Model_Service_ePub_Library.FK_ChapterChapterBookmark" FromRole="ChapterBookmark" ToRole="Chapter" />
+          <NavigationProperty Name="User" Relationship="Model_Service_ePub_Library.FK_UserChapterBookmark" FromRole="ChapterBookmark" ToRole="User" />
+        </EntityType>
+        <EntityType Name="ChapterFav">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="Chapter_Id" Nullable="false" />
+          <Property Type="Int32" Name="User_Id" Nullable="false" />
+          <NavigationProperty Name="Chapter" Relationship="Model_Service_ePub_Library.FK_ChapterChapterFav" FromRole="ChapterFav" ToRole="Chapter" />
+          <NavigationProperty Name="User" Relationship="Model_Service_ePub_Library.FK_UserChapterFav" FromRole="ChapterFav" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Epub">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Author" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Chapter" Relationship="Model_Service_ePub_Library.FK_EpubChapter" FromRole="Epub" ToRole="Chapter" />
+          <NavigationProperty Name="EpubBookmark" Relationship="Model_Service_ePub_Library.FK_EpubEpubBookmark" FromRole="Epub" ToRole="EpubBookmark" />
+          <NavigationProperty Name="EpubFav" Relationship="Model_Service_ePub_Library.FK_EpubEpubFav" FromRole="Epub" ToRole="EpubFav" />
+          <Property Type="String" Name="Subject" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="EpubBookmark">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="Epub_Id" Nullable="false" />
+          <Property Type="Int32" Name="User_Id" Nullable="false" />
+          <NavigationProperty Name="Epub" Relationship="Model_Service_ePub_Library.FK_EpubEpubBookmark" FromRole="EpubBookmark" ToRole="Epub" />
+          <NavigationProperty Name="User" Relationship="Model_Service_ePub_Library.FK_UserEpubBookmark" FromRole="EpubBookmark" ToRole="User" />
+        </EntityType>
+        <EntityType Name="EpubFav">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="Epub_Id" Nullable="false" />
+          <Property Type="Int32" Name="User_Id" Nullable="false" />
+          <NavigationProperty Name="Epub" Relationship="Model_Service_ePub_Library.FK_EpubEpubFav" FromRole="EpubFav" ToRole="Epub" />
+          <NavigationProperty Name="User" Relationship="Model_Service_ePub_Library.FK_UserEpubFav" FromRole="EpubFav" ToRole="User" />
+        </EntityType>
+        <Association Name="FK_ChapterChapterBookmark">
+          <End Type="Model_Service_ePub_Library.Chapter" Role="Chapter" Multiplicity="1" />
+          <End Type="Model_Service_ePub_Library.ChapterBookmark" Role="ChapterBookmark" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Chapter">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ChapterBookmark">
+              <PropertyRef Name="Chapter_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ChapterChapterFav">
+          <End Type="Model_Service_ePub_Library.Chapter" Role="Chapter" Multiplicity="1" />
+          <End Type="Model_Service_ePub_Library.ChapterFav" Role="ChapterFav" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Chapter">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ChapterFav">
+              <PropertyRef Name="Chapter_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EpubChapter">
+          <End Type="Model_Service_ePub_Library.Epub" Role="Epub" Multiplicity="1" />
+          <End Type="Model_Service_ePub_Library.Chapter" Role="Chapter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Epub">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Chapter">
+              <PropertyRef Name="Epub_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserChapterBookmark">
+          <End Type="Model_Service_ePub_Library.User" Role="User" Multiplicity="1" />
+          <End Type="Model_Service_ePub_Library.ChapterBookmark" Role="ChapterBookmark" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ChapterBookmark">
+              <PropertyRef Name="User_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserChapterFav">
+          <End Type="Model_Service_ePub_Library.User" Role="User" Multiplicity="1" />
+          <End Type="Model_Service_ePub_Library.ChapterFav" Role="ChapterFav" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ChapterFav">
+              <PropertyRef Name="User_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EpubEpubBookmark">
+          <End Type="Model_Service_ePub_Library.Epub" Role="Epub" Multiplicity="1" />
+          <End Type="Model_Service_ePub_Library.EpubBookmark" Role="EpubBookmark" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Epub">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EpubBookmark">
+              <PropertyRef Name="Epub_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EpubEpubFav">
+          <End Type="Model_Service_ePub_Library.Epub" Role="Epub" Multiplicity="1" />
+          <End Type="Model_Service_ePub_Library.EpubFav" Role="EpubFav" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Epub">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EpubFav">
+              <PropertyRef Name="Epub_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserEpubBookmark">
+          <End Type="Model_Service_ePub_Library.User" Role="User" Multiplicity="1" />
+          <End Type="Model_Service_ePub_Library.EpubBookmark" Role="EpubBookmark" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EpubBookmark">
+              <PropertyRef Name="User_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserEpubFav">
+          <End Type="Model_Service_ePub_Library.User" Role="User" Multiplicity="1" />
+          <End Type="Model_Service_ePub_Library.EpubFav" Role="EpubFav" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EpubFav">
+              <PropertyRef Name="User_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="LoginHistory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="DateTime" Name="DateLogin" Nullable="false" Precision="3" />
+          <Property Type="Int32" Name="User_Id" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="Model_Service_ePub_Library.FK_UserLoginHistory" FromRole="LoginHistory" ToRole="User" />
+        </EntityType>
+        <Association Name="FK_UserLoginHistory">
+          <End Type="Model_Service_ePub_Library.User" Role="User" Multiplicity="1" />
+          <End Type="Model_Service_ePub_Library.LoginHistory" Role="LoginHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LoginHistory">
+              <PropertyRef Name="User_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Model_Service_ePub_LibraryStoreContainer" CdmEntityContainer="Model_Service_ePub_LibraryContainer">
+    <EntitySetMapping Name="User">
+      <EntityTypeMapping TypeName="IsTypeOf(Model_Service_ePub_Library.User)">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Birthdate" ColumnName="Birthdate" />
+          <ScalarProperty Name="Salt" ColumnName="Salt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Chapter">
+      <EntityTypeMapping TypeName="IsTypeOf(Model_Service_ePub_Library.Chapter)">
+        <MappingFragment StoreEntitySet="Chapter">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Epub_Id" ColumnName="Epub_Id" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChapterBookmark">
+      <EntityTypeMapping TypeName="IsTypeOf(Model_Service_ePub_Library.ChapterBookmark)">
+        <MappingFragment StoreEntitySet="ChapterBookmark">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Chapter_Id" ColumnName="Chapter_Id" />
+          <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChapterFav">
+      <EntityTypeMapping TypeName="IsTypeOf(Model_Service_ePub_Library.ChapterFav)">
+        <MappingFragment StoreEntitySet="ChapterFav">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Chapter_Id" ColumnName="Chapter_Id" />
+          <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Epub">
+      <EntityTypeMapping TypeName="IsTypeOf(Model_Service_ePub_Library.Epub)">
+        <MappingFragment StoreEntitySet="Epub">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Author" ColumnName="Author" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EpubBookmark">
+      <EntityTypeMapping TypeName="IsTypeOf(Model_Service_ePub_Library.EpubBookmark)">
+        <MappingFragment StoreEntitySet="EpubBookmark">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Epub_Id" ColumnName="Epub_Id" />
+          <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EpubFav">
+      <EntityTypeMapping TypeName="IsTypeOf(Model_Service_ePub_Library.EpubFav)">
+        <MappingFragment StoreEntitySet="EpubFav">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Epub_Id" ColumnName="Epub_Id" />
+          <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LoginHistory">
+      <EntityTypeMapping TypeName="IsTypeOf(Model_Service_ePub_Library.LoginHistory)">
+        <MappingFragment StoreEntitySet="LoginHistory">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DateLogin" ColumnName="DateLogin" />
+          <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

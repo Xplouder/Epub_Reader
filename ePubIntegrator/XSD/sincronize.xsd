@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="dados" type="sincronizeType" />
+
+    <xs:complexType name="sincronizeType">
+      <xs:sequence>
+        <xs:element name="userId" type="xs:integer" />
+        <xs:element name="epubs" type="epubsType" />
+      </xs:sequence>
+    </xs:complexType>
+
+  <xs:complexType name="epubsType">
+    <xs:sequence>
+      <xs:element name="epub" type="epubType" minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="epubType">
+    <xs:sequence>
+      <xs:element name="title" type="xs:string" />
+      <xs:element name="author" type="xs:string" />
+      <xs:element name="subject" type="xs:string" />
+      <xs:element name="fav" type="xs:boolean" />
+      <xs:element name="bookmark" type="xs:boolean" />
+      <xs:element name="chapters" type="chaptersType" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="chaptersType">
+    <xs:sequence>
+      <xs:element name="chapter" type="chapterType" minOccurs="0"  maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="chapterType">
+    <xs:sequence>
+      <xs:element name="title" type="xs:string"/>
+      <xs:element name="fav" type="xs:boolean" />
+      <xs:element name="bookmark" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  
+</xs:schema>

@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="72756cba301a448b9e86a3b710a4d5d7" Name="Diagram1" ZoomLevel="74" >
+        <EntityTypeShape EntityType="Model_Service_ePub_Library.User" Width="1.5" PointX="3.625" PointY="8.125" />
+        <EntityTypeShape EntityType="Model_Service_ePub_Library.Chapter" Width="1.5" PointX="5.125" PointY="1.5" />
+        <EntityTypeShape EntityType="Model_Service_ePub_Library.ChapterBookmark" Width="1.5" PointX="4.75" PointY="5" />
+        <EntityTypeShape EntityType="Model_Service_ePub_Library.ChapterFav" Width="1.5" PointX="6.625" PointY="5" />
+        <EntityTypeShape EntityType="Model_Service_ePub_Library.Epub" Width="1.5" PointX="1.75" PointY="1.5" />
+        <EntityTypeShape EntityType="Model_Service_ePub_Library.EpubBookmark" Width="1.5" PointX="2.625" PointY="5.125" />
+        <EntityTypeShape EntityType="Model_Service_ePub_Library.EpubFav" Width="1.5" PointX="0.875" PointY="5.125" />
+        <AssociationConnector Association="Model_Service_ePub_Library.FK_ChapterChapterBookmark" />
+        <AssociationConnector Association="Model_Service_ePub_Library.FK_ChapterChapterFav" />
+        <AssociationConnector Association="Model_Service_ePub_Library.FK_EpubChapter" />
+        <AssociationConnector Association="Model_Service_ePub_Library.FK_UserChapterBookmark" />
+        <AssociationConnector Association="Model_Service_ePub_Library.FK_UserChapterFav" />
+        <AssociationConnector Association="Model_Service_ePub_Library.FK_EpubEpubBookmark" />
+        <AssociationConnector Association="Model_Service_ePub_Library.FK_EpubEpubFav" />
+        <AssociationConnector Association="Model_Service_ePub_Library.FK_UserEpubBookmark" />
+        <AssociationConnector Association="Model_Service_ePub_Library.FK_UserEpubFav" />
+        <EntityTypeShape EntityType="Model_Service_ePub_Library.LoginHistory" Width="1.5" PointX="3.625" PointY="12.125" />
+        <AssociationConnector Association="Model_Service_ePub_Library.FK_UserLoginHistory" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
